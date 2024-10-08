@@ -30,6 +30,7 @@ export default {
         height: 99px;
         background-color: black;
         border-radius: 100px;
+        z-index: 999;
         display: flex;
         align-items: center;
         flex-direction: column;

@@ -29,5 +29,6 @@ coverage
 
 *.tsbuildinfo
 
+src/assets/
 
-src/assets/woff2/
+dist/

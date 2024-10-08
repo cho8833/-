@@ -1,12 +1,11 @@
 <template>
-
-    <div class="header">
+    <div class="header" v-on:mouseover="appearHeader" v-on:mouseleave="transparentHeader" :style="{backgroundColor: isHeaderHover ? 'white' : 'transparent'}">
         <div style="width: 91px;"/>
         <img :src="logo">
         <div style="width: 56px"/>
         <div class="menu-bar">
             <div class="menu-list" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
-                <div class="menu">
+                <div class="menu" style="width: 154px;">
                     관람ㆍ참여
                     <Transition name="menu-fade">
                         <div v-if="expandMenu" >
@@ -19,7 +18,7 @@
                         </div>
                     </Transition>
                 </div>
-                <div class="menu">
+                <div class="menu" style="width: 106px">
                     전시
                     <Transition name="menu-fade">
                         <div v-if="expandMenu" >
@@ -32,7 +31,7 @@
                         </div>
                     </Transition>
                 </div>
-                <div class="menu">
+                <div class="menu" style="width:115px">
                     교육
                     <Transition name="menu-fade">
                         <div v-if="expandMenu" >
@@ -45,7 +44,7 @@
                         </div>
                     </Transition>
                 </div>
-                <div class="menu">
+                <div class="menu" style="width:116px">
                     소장품
                     <Transition name="menu-fade">
                         <div v-if="expandMenu" >
@@ -58,7 +57,7 @@
                         </div>
                     </Transition>
                 </div>
-                <div class="menu">
+                <div class="menu" style="width: 147px">
                     미술연구
                     <Transition name="menu-fade">
                         <div v-if="expandMenu" >
@@ -106,6 +105,7 @@ export default {
     data() {
         return {
             underlineXOffset: null,
+            isHeaderHover: false,
             opacity: 0,
             expandMenu: false,
             menuList1: [
@@ -126,6 +126,12 @@ export default {
         }
     },
     methods: {
+        appearHeader() {
+            this.isHeaderHover = true
+        },
+        transparentHeader() {
+            this.isHeaderHover = false
+        },
         showUnderline(event) {
             const x = event.srcElement.offsetLeft
             const width = event.srcElement.getBoundingClientRect().width
@@ -142,7 +148,6 @@ export default {
             }
         },
         removeUnderline(event) {
-            console.log('leave')
             this.menuhover = false;
             this.opacity = 0
             this.expandMenu = false
@@ -167,30 +172,27 @@ export default {
     }
     .header {
         display: flex;
-        float: left;
-        background-color: white;
-        position: fixed; 
+        position: fixed;
         top: 0;
-        z-index: 998;
         padding-top: 24px;
         align-items: flex-start;
         white-space: nowrap;
-        min-height: 172px;
+        padding-bottom: 32px;
+        transition: background-color 0.3s ease;
     }
     .menu-bar {
         position: relative;
+        z-index: 998;
     }
     .menu {
         font-size: 18px;
         font-weight: 500;
-        padding-left: 40px;
-        padding-right: 40px;
         padding-top: 24px;
         padding-bottom: 12px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+        cursor: pointer;
     }
     .menu-list {
         display: flex;
@@ -202,6 +204,7 @@ export default {
         justify-content: center;
     }
     .sub-menu-item {
+        cursor: pointer;
         font-size: 16px;
         font-weight: 500;
         margin-bottom: 15px;
