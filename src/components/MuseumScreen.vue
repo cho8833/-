@@ -6,7 +6,22 @@
         <div style="height: 40px"/>
         <div class="museum-list">
             <li class="museum-list-item" v-for="item of museums">
-                <img :src="item.image">
+                <div style="position: relative">
+                    <img class="museum-item-image" :src="item.image">
+                    <div class="museum-item-mouseover">
+                        <div style="height: 118px"/>
+                        <div class="museum-item-mouseover-title">
+                            {{ item.location + "관" }}
+                        </div>
+                        <div style="height: 5px"/>
+                        <div style="background-color: white; width: 100px; height: 1px;"/>
+                        <div style="height: 22px"/>
+                        <div class="museum-item-mouseover-seeall">
+                            전체 일정 보기
+                            <span class="material-icons display-all-chevron">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
                 <div style="height: 20px"/>
                 <div class="museum-list-item-title">
                     {{ item.location }}
@@ -72,6 +87,28 @@ export default {
         list-style-type: none;
         padding-right: 35px;
     }
+    .museum-item-mouseover {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 16px;
+        z-index: 100;
+        transition: all 0.3s ease;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .museum-item-mouseover:hover {
+        opacity: 1;
+    }
+    .museum-item-image {
+        opacity: 1;
+        display: block;
+    }
     .museum-list-item-title {
         font-size: 23px;
         font-weight: 600;
@@ -80,5 +117,14 @@ export default {
         font-size: 16px;
         font-weight: 500;
         color: #a7a9ac;
+    }
+    .museum-item-mouseover-title {
+        font-size: 37px;
+        font-weight: 600;
+    }
+    .museum-item-mouseover-seeall {
+        display: flex;
+        font-size: 20px;
+        font-weight: 600;
     }
 </style>

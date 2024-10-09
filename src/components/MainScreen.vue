@@ -8,6 +8,8 @@
     <EventScreen />
     <div style="height: 143px" />
     <MuseumScreen />
+    <div style="height: 62px" />
+    <Banner />
 </template>
 
 <script setup>
@@ -17,6 +19,7 @@ import Page1 from './Page1.vue'
 import DateScreen from './DateScreen.vue'
 import EventScreen from './EventScreen.vue'
 import MuseumScreen from './MuseumScreen.vue'
+import Banner from './Banner.vue'
 </script>
 
 <style>
