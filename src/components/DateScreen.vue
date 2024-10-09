@@ -119,7 +119,7 @@ export default {
         color: #838080;
     }
     .date-box {
-        width: 1610px;
+        width: 1600px;
         white-space: nowrap;
         overflow-x: auto;
     }
@@ -174,7 +174,7 @@ export default {
         justify-content: center;
         align-items: center;
         color: #babab8;
-        transform: translateY(-50%);
+        transform: translateY(-55%);
         cursor: pointer;
         transition: color 0.3s ease;
     }

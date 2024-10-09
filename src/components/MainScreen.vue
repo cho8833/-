@@ -10,6 +10,8 @@
     <MuseumScreen />
     <div style="height: 62px" />
     <Banner />
+    <div style="height: 100px"/>
+    <CurrentDisplayScreen />
 </template>
 
 <script setup>
@@ -20,6 +22,8 @@ import DateScreen from './DateScreen.vue'
 import EventScreen from './EventScreen.vue'
 import MuseumScreen from './MuseumScreen.vue'
 import Banner from './Banner.vue'
+import CurrentDisplayScreen from './CurrentDisplayScreen.vue'
+
 </script>
 
 <style>
