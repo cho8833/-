@@ -171,6 +171,7 @@ export default {
         object-fit: contain;
     }
     .header {
+        z-index: 899;
         display: flex;
         position: fixed;
         top: 0;

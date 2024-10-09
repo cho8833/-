@@ -84,17 +84,17 @@ export default {
         onDateClick(index, event) {
             this.selectedDateIndex = index
             this.focusDateIndex = index
-            event.target.scrollIntoView({behavior: "smooth", inline: "center"})
+            event.target.scrollIntoView({behavior: "smooth", inline: "center", block: "nearest"})
         },
         onDateFocusChange(isLeft) {
             this.focusDateIndex += isLeft ? -7 : 7;
             const focusBox = this.$refs['date-box-' + this.focusDateIndex][0]
-            focusBox.scrollIntoView({behavior: "smooth", inline: "center"})
+            focusBox.scrollIntoView({behavior: "smooth", inline: "center", block: "nearest"})
         }
     },
     mounted() {
         const todayBox = this.$refs['date-box-' + this.selectedDateIndex][0]
-        todayBox.scrollIntoView({inline: "center"})
+        todayBox.scrollIntoView({inline: "center", block: "nearest"})
     }
 
 }
@@ -174,6 +174,7 @@ export default {
         justify-content: center;
         align-items: center;
         color: #babab8;
+        transform: translateY(-50%);
         cursor: pointer;
         transition: color 0.3s ease;
     }
