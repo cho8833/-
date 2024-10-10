@@ -7,6 +7,7 @@ body {
   max-width: 1920px;
   min-width: 1920px;
   min-height: 100vh;
+  overflow-x: hidden;
   font-family: 'Pretendard';
   text-rendering: optimizeLegibility;
 }
@@ -16,6 +17,13 @@ body {
   font-weight: normal;
   margin: auto;
   position: relative;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline-style: none;
+  box-sizing: border-box;
 }
 
 .material-icons {

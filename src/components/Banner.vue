@@ -25,12 +25,12 @@
 <style>
     .banner {
         position: relative;
+        height: 278px;
     }
     .banner-title-box {
         position: absolute;
         padding-left: 151px;
         height: 100%;
-        width: 100%;
         top: 0;
         color: #fcf6e4;
         line-height: 1;

@@ -9,9 +9,11 @@
     <div style="height: 143px" />
     <MuseumScreen />
     <div style="height: 62px" />
-    <Banner />
-    <div style="height: 100px"/>
     <CurrentDisplayScreen />
+    <div style="height: 148px"/>
+    <CollectionScreen />
+    <div style="height: 194px"/>
+    <DigitalMuseumScreen />
 </template>
 
 <script setup>
@@ -21,8 +23,9 @@ import Page1 from './Page1.vue'
 import DateScreen from './DateScreen.vue'
 import EventScreen from './EventScreen.vue'
 import MuseumScreen from './MuseumScreen.vue'
-import Banner from './Banner.vue'
 import CurrentDisplayScreen from './CurrentDisplayScreen.vue'
+import CollectionScreen from './CollectionScreen.vue'
+import DigitalMuseumScreen from './DigitalMuseumScreen.vue'
 
 </script>
 
