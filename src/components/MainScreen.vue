@@ -4,7 +4,7 @@
     <Page1/>
     <div style="height: 240px"/>
     <DateScreen />
-    <div style="height: 129px" />
+    <div style="height: 148px" />
     <EventScreen />
     <div style="height: 143px" />
     <MuseumScreen />

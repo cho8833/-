@@ -13,7 +13,6 @@
                 </li>
             </div>
         </div>
-        <div style="height: 18px"/>
         <div class="display-container">
             <div class="display-all">
                 <div class="display-all-text">
@@ -21,10 +20,10 @@
                 </div>
                 <span class="material-icons display-all-chevron">chevron_right</span>
             </div>
-            <div style="height: 24px"/>
-            <div style="display: flex">
+            <div style="height: 56px"/>
+            <div style="display: flex;">
                 <li style="list-style-type: none;" v-for="(item, index) in displaies">
-                    <div style="display:flex">
+                    <div style="display:flex; flex-direction: row-reverse;">
                         <div>
                             <img :src="item.image">
                             <div style="height: 24px"/>
@@ -150,7 +149,7 @@ export default {
 <style>
     .event-screen {
         padding-left: 149px;
-        padding-right: 149px;
+        padding-right: 200px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -173,6 +172,9 @@ export default {
         padding-right: 27px;
         padding-top: 15px;
         padding-bottom: 15px;
+        height: 44px;
+        display: flex;
+        align-items: center;
         border-radius: 22px;
         border-style: solid;
         border-width: 1px;
@@ -185,18 +187,20 @@ export default {
         background-color: black;
         color: white;
     }
-
     .display-container {
-        padding-left: 52px;
-        padding-right: 52px;
+        position: relative;
     }
     .display-all {
         display: flex;
         justify-content: flex-end;
+        position: absolute;
+        top: 18px;
+        right: 0;
+
     }
     .display-all-text {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 600;
     }
     .display-text-description {
         font-size: 16px;

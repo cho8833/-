@@ -55,26 +55,28 @@ export default {
         Banner
     },
     mounted() {
-       gsap.utils.toArray(".panel-image-1").forEach((panel, i) => {
-          ScrollTrigger.create({
-            trigger: panel,
-              start: "top 0%",
-            end: "bottom bottom",
-            endTrigger: '.panel-image-2',
-            pin: true,
-            pinSpacing: false
-          });
-       });
-        gsap.to('.panel-image-2', {
-            scrollTrigger: {
-                trigger: '.panel-image-2',
-                endTrigger: '.panel-image-3',
-                start: 'top 0%',
-                end: 'bottom bottom',
-                pin: true,
-                pinSpacing: false
-            }
-       })
+    //    gsap.utils.toArray(".panel-image-1").forEach((panel, i) => {
+    //       ScrollTrigger.create({
+    //         trigger: panel,
+    //         start: "top 0%",
+    //         end: "bottom bottom",
+    //         endTrigger: '.panel-image-2',
+    //         pin: true,
+    //         markers: true,
+    //         pinSpacing: false
+    //       });
+    //    });
+    //     gsap.to('.panel-image-2', {
+    //         scrollTrigger: {
+    //             trigger: '.panel-image-2',
+    //             endTrigger: '.panel-image-3',
+    //             start: 'top 0%',
+    //             end: 'bottom bottom',
+    //             markers: true,
+    //             pin: true,
+    //             pinSpacing: false
+    //         }
+    //    })
     }
 }
 
@@ -92,7 +94,7 @@ export default {
         height: 100vh;
     }
     .panel-image-1 {
-
+        
         background: url('@/assets/current_display1.png') no-repeat;
         background-size: cover;
     }

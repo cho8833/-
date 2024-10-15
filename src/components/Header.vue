@@ -1,5 +1,5 @@
 <template>
-    <div class="header" v-on:mouseover="appearHeader" v-on:mouseleave="transparentHeader" :style="{backgroundColor: isHeaderHover ? 'white' : 'transparent'}">
+    <div class="header">
         <div style="width: 91px;"/>
         <img :src="logo">
         <div style="width: 56px"/>
@@ -89,7 +89,6 @@
             </div>
             <div style="width: 8px"/>
             <img :src="down">
-            <div style="width: 151px"/>
         </div>
     </div>
     
@@ -105,7 +104,6 @@ export default {
     data() {
         return {
             underlineXOffset: null,
-            isHeaderHover: false,
             opacity: 0,
             expandMenu: false,
             menuList1: [
@@ -126,12 +124,6 @@ export default {
         }
     },
     methods: {
-        appearHeader() {
-            this.isHeaderHover = true
-        },
-        transparentHeader() {
-            this.isHeaderHover = false
-        },
         showUnderline(event) {
             const x = event.srcElement.offsetLeft
             const width = event.srcElement.getBoundingClientRect().width
@@ -175,11 +167,12 @@ export default {
         display: flex;
         position: fixed;
         top: 0;
+        width: 100%;
         padding-top: 24px;
         align-items: flex-start;
         white-space: nowrap;
         padding-bottom: 32px;
-        transition: background-color 0.3s ease;
+        background-color: white;
     }
     .menu-bar {
         position: relative;

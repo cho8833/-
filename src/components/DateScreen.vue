@@ -129,10 +129,10 @@ export default {
         width: 226px;
         height: 253px;
         border-color: #e8e7e6;
-        border-top-width: 4px;
-        border-bottom-width: 4px;
-        border-left-width: 2px;
-        border-right-width: 2px;
+        border-top-width: 2px;
+        border-bottom-width: 2px;
+        border-left-width: 1px;
+        border-right-width: 1px;
         border-style: solid;
     }
     .date-text-box {
@@ -166,20 +166,25 @@ export default {
     .scroll-button {
         width: 55px;
         height: 55px;
-        background-color: #e8e7e6;
         border-radius: 100px;
+        border-color: #e8e7e6;
+        background-color: white;
+        border-style: solid;
+        border-width: 2px;
         position: absolute;
         top: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #babab8;
         transform: translateY(-55%);
         cursor: pointer;
-        transition: color 0.3s ease;
+        color: #babab8;
+        transition: all 0.3s ease;
     }
     .scroll-button:hover {
-        color: black;
+        color: white;
+        background-color: black;
+
     }
     .scroll-button-left {
         left: -27.5px;
