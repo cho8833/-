@@ -40,7 +40,7 @@
                 </li>
             </div>
         </div>
-        <div class="more-display" v-if="isMore">
+        <div class="more-display" v-show="isMore">
             <div style="height: 90px"/>
             <div style="display: flex">
                 <li style="list-style-type: none;" v-for="(item, index) in moreDisplaies">
@@ -72,13 +72,14 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import displayImage1 from '@/assets/display1.png'
 import displayImage2 from '@/assets/display2.png'
 import displayImage3 from '@/assets/display3.png'
 import displayImage4 from '@/assets/display4.png'
 import displayImage5 from '@/assets/display5.png'
 import displayImage6 from '@/assets/display6.png'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 export default {
     data() {
@@ -143,6 +144,12 @@ export default {
         triggerMore() {
             this.isMore = !this.isMore;
         }
+    },
+    updated() {
+        nextTick().then(() => {
+            ScrollTrigger.refresh()
+        })
+        
     }
 }
 </script>
