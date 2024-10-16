@@ -23,7 +23,7 @@ import Page1 from './Page1.vue'
 import DateScreen from './DateScreen.vue'
 import EventScreen from './EventScreen.vue'
 import MuseumScreen from './MuseumScreen.vue'
-import CurrentDisplayScreen from './CurrentDisplayScreen.vue'
+import CurrentDisplayScreen from './CurrentDisplayScreen/CurrentDisplayScreen.vue'
 import CollectionScreen from './CollectionScreen.vue'
 import DigitalMuseumScreen from './DigitalMuseumScreen.vue'
 
