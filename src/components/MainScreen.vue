@@ -16,6 +16,7 @@
     <DigitalMuseumScreen />
     <div style="height: 126px"/>
     <NewsLetterScreen />
+    <Footer/>
 </template>
 
 <script setup>
@@ -29,7 +30,7 @@ import CurrentDisplayScreen from './CurrentDisplayScreen/CurrentDisplayScreen.vu
 import CollectionScreen from './CollectionScreen.vue'
 import DigitalMuseumScreen from './DigitalMuseumScreen.vue'
 import NewsLetterScreen from './NewsLetterScreen.vue'
-
+import Footer from './Footer.vue'
 
 </script>
 

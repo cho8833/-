@@ -7,7 +7,6 @@
         <div class="museum-list">
             <li class="museum-list-item" v-for="item of museums">
                 <div style="position: relative">
-                    <img class="museum-item-image" :src="item.image">
                     <div class="museum-item-mouseover">
                         <div style="height: 118px"/>
                         <div class="museum-item-mouseover-title">
@@ -21,6 +20,10 @@
                             <span class="material-icons display-all-chevron">chevron_right</span>
                         </div>
                     </div>
+                    <div class="museum-image-container">
+                        <img class="museum-item-image" :src="item.image">
+                    </div>
+                    
                 </div>
                 <div style="height: 20px"/>
                 <div class="museum-list-item-title">
@@ -105,9 +108,21 @@ export default {
     .museum-item-mouseover:hover {
         opacity: 1;
     }
+    .museum-item-mouseover:hover ~.museum-image-container .museum-item-image {
+        transform: scale(1.3);
+    }
+    .museum-image-container {
+        width: 377px;
+        height: 772px;
+        overflow: hidden;
+        overflow-y: hidden;
+        border-radius: 16px;
+    }
     .museum-item-image {
         opacity: 1;
         display: block;
+        transition: transform 1s ease;
+        
     }
     .museum-list-item-title {
         font-size: 23px;
