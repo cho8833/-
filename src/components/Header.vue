@@ -1,7 +1,9 @@
 <template>
     <div class="header">
         <div style="width: 91px;"/>
-        <img :src="logo">
+        <a href="/">
+            <img :src="logo">
+        </a>
         <div style="width: 56px"/>
         <div class="menu-bar">
             <div class="menu-list" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
@@ -11,9 +13,9 @@
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList1">
-                                <div class="sub-menu-item">
+                                <a class="sub-menu-item" href="/sub-page">
                                     {{ item }}
-                                </div>
+                                </a>
                             </li>
                         </div>
                     </Transition>
@@ -146,6 +148,9 @@ export default {
         }
     },
     setup() {
+        const routes = {
+            
+        }
         const logo = ref(headerLogo)
         const icon = ref(searchIcon)
         const down = ref(chevronDown)
@@ -159,6 +164,9 @@ export default {
 </script>
 
 <style>
+    a {
+        text-decoration: none;
+    }
     img {
         object-fit: contain;
     }
@@ -174,11 +182,11 @@ export default {
         padding-bottom: 32px;
         background-color: white;
     }
-    .menu-bar {
+    .header .menu-bar {
         position: relative;
         z-index: 998;
     }
-    .menu {
+    .header .menu {
         font-size: 18px;
         font-weight: 500;
         padding-top: 24px;
@@ -188,26 +196,26 @@ export default {
         align-items: center;
         cursor: pointer;
     }
-    .menu-list {
+    .header .menu-list {
         display: flex;
         float: left;
     }
-    .sub-menu {
+    .header .sub-menu {
         list-style-type: none;
         display: flex;
         justify-content: center;
     }
-    .sub-menu-item {
+    .header .sub-menu-item {
         cursor: pointer;
         font-size: 16px;
         font-weight: 500;
         margin-bottom: 15px;
         color: #7f7f7f;
     }
-    .sub-menu-item:hover {
+    .header .sub-menu-item:hover {
         color: black;
     }
-    .hover-underline {
+    .header .hover-underline {
         position: absolute;
         background-color: #998a5f;
         height: 2px;
@@ -216,13 +224,13 @@ export default {
         z-index: -1;
         transition: all 0.3s ease;
     }
-    .menu-items {
+    .header .menu-items {
         display: flex;
         flex-direction: row;
         padding-top: 8px;
         align-items: center;
     }
-    .search-box {
+    .header .search-box {
         border-width: 2px;
         border-style: solid;
         border-color: rgb(127, 127, 127);
@@ -234,11 +242,11 @@ export default {
         justify-content: flex-end;
         align-items: center;
     }
-    .search-icon {
+    .header .search-icon {
         width: 18px;
         height: 18px;
     }
-    .reserve-button {
+    .header .reserve-button {
         width: 176px;
         height: 47px;
         font-size: 16px;
@@ -251,17 +259,17 @@ export default {
         align-items: center;
         justify-content: center;
     }
-    .language-button {
+    .header .language-button {
         font-size: 17px;
         font-weight: 600;
     }
 
-    .menu-fade-enter-active,
-    .menu-fade-leave-active {
+    .header .menu-fade-enter-active,
+    .header .menu-fade-leave-active {
         transition: opacity 0.3s ease;
     }
-    .menu-fade-enter-from,
-    .menu-fade-leave-to {
+    .header .menu-fade-enter-from,
+    .header .menu-fade-leave-to {
         opacity: 0;
     }
 </style>
