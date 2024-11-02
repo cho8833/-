@@ -36,18 +36,18 @@ export default {
         padding-top: 157px;
         width: 1592px;
     }
-    .introduce {
+    .page1 .introduce {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         padding-top: 74px;
         padding-left: 149px;
     }
-    .title {
+    .page1 .introduce .title {
         font-size: 80px;
         font-weight: 700;
     }
-    .discription {
+    .page1 .introduce .discription {
         font-size: 20px;
         font-weight: 500;
     }

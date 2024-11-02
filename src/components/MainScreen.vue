@@ -14,6 +14,8 @@
     <CollectionScreen />
     <div style="height: 194px"/>
     <DigitalMuseumScreen />
+    <div style="height: 126px"/>
+    <NewsLetterScreen />
 </template>
 
 <script setup>
@@ -26,6 +28,8 @@ import MuseumScreen from './MuseumScreen.vue'
 import CurrentDisplayScreen from './CurrentDisplayScreen/CurrentDisplayScreen.vue'
 import CollectionScreen from './CollectionScreen.vue'
 import DigitalMuseumScreen from './DigitalMuseumScreen.vue'
+import NewsLetterScreen from './NewsLetterScreen.vue'
+
 
 </script>
 

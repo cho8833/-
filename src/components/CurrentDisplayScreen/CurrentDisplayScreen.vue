@@ -12,7 +12,7 @@
                     <div class="current-display-image">
                         <div class="panel-image panel-image-2"/>
                     </div>
-                    <div class="current-display-description-area">
+                    <div class="current-display-description-area"> 
                         <CurrentDisplayDescription v-bind:description="descriptions[1]"/>
                     </div>
                 </div>
@@ -119,7 +119,6 @@ export default {
                 start: 'top 0%',
                 end: 'bottom bottom',
                 pin: true,
-                markers: true,
                 pinSpacing: false
             }
         })

@@ -18,8 +18,16 @@
         </div>
         <div style="height: 80px;"/>
         <div class="video-list">
-            <li v-for="item of videos">
-                <img :src="item.vidoe">
+            <li class="video-item" v-for="item of videos">
+                <img class="video" :src="item.video">
+                <div style="height: 20px"/>
+                <div class="author">
+                    {{ item.author }}
+                </div>
+                <div style="height: 11px;"/>
+                <div class="title">
+                    {{  item.title  }}
+                </div>
             </li>
         </div>
     </div>
@@ -27,9 +35,9 @@
 </template>
 
 <script>
-import video1 from '@/assets/video1.png'
-import video2 from '@/assets/video2.png'
-import video3 from '@/assets/video3.png'
+import video1 from '@/assets/digital_museum_video1.png'
+import video2 from '@/assets/digital_museum_video2.png'
+import video3 from '@/assets/digital_museum_video3.png'
 
 export default {
     data() {
@@ -105,10 +113,33 @@ export default {
     }
     .digital-museum-screen .video-list {
         white-space: nowrap;
-        overflow-x: auto;
+        overflow-x: scroll;
         display: flex;
+        list-style-type: none;
+    }
+    .digital-museum-screen .video-list::-webkit-scrollbar {
+        height: 2px;
+        background-color: #dbdbdb;
+    }
+    .digital-museum-screen .video-list::-webkit-scrollbar-thumb {
+        background-color: black;
     }
     .digital-museum-screen .video-list .video-item {
-        list-style-type: none;
+        width: 718px;
+        margin-right: 20px;
+        margin-bottom: 88px;
+    }
+    .digital-museum-screen .video-list .video-item .video {
+        height: 409px;
+    }
+    .digital-museum-screen .video-list .video-item .author {
+        color: #a8996e;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .digital-museum-screen .video-list .video-item .title {
+        color: black;
+        font-weight: 700;
+        font-size: 20px;
     }
 </style>
