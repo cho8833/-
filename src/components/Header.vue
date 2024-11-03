@@ -6,67 +6,128 @@
         </a>
         <div style="width: 56px"/>
         <div class="menu-bar">
-            <div class="menu-list" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
-                <div class="menu" style="width: 154px;">
-                    관람ㆍ참여
-                    <Transition name="menu-fade">
+            <div class="menu-list" v-on:mouseover="showMenu" v-on:mouseleave="removeMenu">
+                <div class="menu" style="width: 156px;" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
+                    <div class="cube">
+                        <div class="face front">
+                            관람ㆍ참여
+                        </div>
+                        <div class="face back">
+                            VisitㆍParticipation
+                        </div>
+                    </div>                    
+                    <Transition name="menu-fade" class="transition">
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList1">
-                                <a class="sub-menu-item" href="/sub-page">
-                                    {{ item }}
+                                <a class="sub-menu-item cube" href="/sub-page">
+                                    <div class="face front">
+                                        {{ item.kor }}
+                                    </div>
+                                    <div class="face back" style="top: 8px;">
+                                        {{ item.eng }}
+                                    </div>
                                 </a>
                             </li>
                         </div>
                     </Transition>
                 </div>
-                <div class="menu" style="width: 106px">
-                    전시
-                    <Transition name="menu-fade">
+                <div class="menu" style="width: 151px" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
+                    <div class="cube">
+                        <div class="face front">
+                            전시
+                        </div>
+                        <div class="face back">
+                            Exhibition
+                        </div>
+                    </div>
+                    <Transition name="menu-fade" class="transition">
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList2">
-                                <div class="sub-menu-item">
-                                    {{ item }}
+                                <div class="sub-menu-item cube">
+                                    <div class="face front">
+                                        {{ item.kor }}
+                                    </div>
+                                    <div class="face back" style="top: 8px;">
+                                        {{ item.eng }}
+                                    </div>
                                 </div>
                             </li>
                         </div>
                     </Transition>
                 </div>
-                <div class="menu" style="width:115px">
-                    교육
-                    <Transition name="menu-fade">
+                <div class="menu" style="width:112px" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
+                    <div class="cube">
+                        <div class="face front">
+                            교육
+                        </div>
+                        <div class="face back">
+                            Education
+                        </div>
+                    </div>
+                    <Transition name="menu-fade" class="transition">
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList3">
-                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
-                                    {{ item }}
+                                <div class="sub-menu-item cube" v-on:click="setSubPageScreen">
+                                    <div class="face front">
+                                        {{ item.kor }}
+                                    </div>
+                                    <div class="face back" style="top: 8px;">
+                                        {{ item.eng }}
+                                    </div>
                                 </div>
                             </li>
                         </div>
                     </Transition>
                 </div>
-                <div class="menu" style="width:116px">
-                    소장품
-                    <Transition name="menu-fade">
+                <div style="width: 7px"/>
+                <div class="menu" style="width:108px" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
+                    <div class="cube">
+                        <div class="face front">
+                            소장품
+                        </div>
+                        <div class="face back">
+                            Collection
+                        </div>
+                    </div>
+                    <Transition name="menu-fade" class="transition">
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList4">
-                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
-                                    {{ item }}
+                                <div class="sub-menu-item cube" v-on:click="setSubPageScreen">
+                                    <div class="face front">
+                                        {{ item.kor }}
+                                    </div>
+                                    <div class="face back" style="top: 8px;">
+                                        {{ item.eng }}
+                                    </div>
                                 </div>
                             </li>
                         </div>
                     </Transition>
                 </div>
-                <div class="menu" style="width: 147px">
-                    미술연구
-                    <Transition name="menu-fade">
+                <div class="menu" style="width: 155px" v-on:mouseover="showUnderline" v-on:mouseleave="removeUnderline">
+                    <div class="cube">
+                        <div class="face front">
+                            미술연구
+                        </div>
+                        <div class="face back">
+                            Art Research
+                        </div>
+                    </div>
+                    <Transition name="menu-fade" class="transition">
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList5">
-                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
-                                    {{ item }}
+                                <div class="sub-menu-item cube" v-on:click="setSubPageScreen">
+                                    <div class="face front">
+                                        {{ item.kor }}
+                                    </div>
+                                    <div class="face back" style="top: 8px;">
+                                        {{ item.eng }}
+                                    </div>
                                 </div>
                             </li>
                         </div>
@@ -100,8 +161,6 @@ import { ref } from 'vue'
 import headerLogo from '@/assets/header_logo.png'
 import searchIcon from '@/assets/search_icon.png'
 import chevronDown from '@/assets/chevron-down.png'
-import MainScreen from './MainScreen.vue'
-import SubPageScreen from './SubPageScreen/SubPageScreen.vue'
 
 export default {
     props: [
@@ -113,42 +172,123 @@ export default {
             opacity: 0,
             expandMenu: false,
             menuList1: [
-                '서울', '과천', '덕수궁', '청주', '디지털미술관'
+                {
+                    kor: "서울",
+                    eng: "seoul"
+                },
+                {
+                    kor: "과천",
+                    eng: "Gwacheon"
+                },
+                {
+                    kor: "덕수궁",
+                    eng: "Deoksugun"
+                },
+                {
+                    kor: "청주",
+                    eng: "Cheongju"
+                },
+                {
+                    kor: "디지털미술관",
+                    eng: "Digital Museum"
+                }
             ],
             menuList2: [
-                '현재 전시', '예정 전시', '과거 전시', '전시 해설'
+                {
+                    kor: "현재 전시",
+                    eng: "Current Exhibition"
+                },
+                {
+                    kor: "예정 전시",
+                    eng: "Scheduled Exhibition"
+                },
+                {
+                    kor: "과거 전시",
+                    eng: "Past Exhibition"
+                },
+                {
+                    kor: "전시 해설",
+                    eng: "Commentary"
+                }
             ],
             menuList3: [
-                '어린이', '청소년', '성인', '교사', '교육자료실'
+                {
+                    kor: "어린이",
+                    eng: "Children"
+                },
+                {
+                    kor: "청소년",
+                    eng: "Adolescent"
+                },
+                {
+                    kor: "성인",
+                    eng: "Adult"
+                },
+                {
+                    kor: "교사",
+                    eng: "Teacher"
+                },
+                {
+                    kor: "교육자료실",
+                    eng: "Library"
+                }
             ],
             menuList4: [
-                '소장품 검색', '보존과학'
+                {
+                    kor: "소장품 검색",
+                    eng: "Search"
+                },
+                {
+                    kor: "보존과학",
+                    eng: "Conversation"
+                }
             ],
             menuList5: [
-                '도서와 아카이브', '연구 및 발간 자료', 'MMCA 리서치랩', '레지던시', '미술은행'
+                {
+                    kor: "도서와 아카이브",
+                    eng: "Books / Archives"
+                },
+                {
+                    kor: "연구 및 발간 자료",
+                    eng: "Research/Publication"
+                },
+                {
+                    kor: "MMCA 리서치랩",
+                    eng: "MMCA Research Lab"
+                },
+                {
+                    kor: "레지던시",
+                    eng: "Residency"
+                },
+                {
+                    kor: "미술은행",
+                    eng: 'Art bank'
+                }
             ]
         }
     },
     methods: {
+        showMenu() {
+            if (!this.expandMenu) {
+                this.expandMenu = true
+            }
+        },
+        removeMenu() {
+            this.expandMenu = false
+        },
         showUnderline(event) {
-            const x = event.srcElement.offsetLeft
-            const width = event.srcElement.getBoundingClientRect().width
+            const x = event.currentTarget.offsetLeft
+            const width = event.currentTarget.getBoundingClientRect().width
             const center = x + width / 2 - 33.5
-
             if (this.underlineXOffset !== center) {
                 this.underlineXOffset = center
             }
             if (this.opacity !== 1) {
                 this.opacity = 1
             }
-            if (!this.expandMenu) {
-                this.expandMenu = true
-            }
         },
         removeUnderline(event) {
-            this.menuhover = false;
             this.opacity = 0
-            this.expandMenu = false
         }
     },
     setup() {
@@ -201,17 +341,57 @@ export default {
         display: flex;
         float: left;
     }
+    .header .menu-bar .menu-list .menu .transition {
+        width: 100%;
+    }
     .header .sub-menu {
         list-style-type: none;
         display: flex;
         justify-content: center;
+        width: 100%;
     }
+    
     .header .sub-menu-item {
         cursor: pointer;
         font-size: 16px;
         font-weight: 500;
-        margin-bottom: 15px;
+        width: 100%;
+        padding: 8px 0;
         color: #7f7f7f;
+    }
+    .cube {
+        width: 100%;
+        position: relative;
+        transform: translateZ(100px);
+        backface-visibility: hidden;
+        perspective: 200px;
+    }
+    .face {
+        width: 100%;
+        background-color: white;
+        text-align: center;
+        z-index: -1;
+    }
+    .front {
+        transform: rotateX(0deg);
+        transition: transform 0.3s;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+    .back {
+        transform: rotateX(180deg);
+        position: absolute;
+        left: 0;
+        top: 0px;
+        z-index: -1;
+        transition: transform 0.3s;
+        transform-style: preserve-3d;
+    }
+    .cube:hover .front {
+        transform: rotateX(180deg);
+    }
+    .cube:hover .back {
+        transform: rotateX(0deg);
     }
     .header .sub-menu-item:hover {
         color: black;

@@ -85,6 +85,10 @@ export default {
         background-color: black;
         color: white;
         font-size: 18px;
+        display: flex;
+        align-items: center;
+        border-radius: 27px;
+        justify-content: center;
         font-weight: 500;
     }
 

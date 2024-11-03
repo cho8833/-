@@ -13,7 +13,7 @@
                             {{ item.location + "관" }}
                         </div>
                         <div style="height: 5px"/>
-                        <div style="background-color: white; width: 100px; height: 1px;"/>
+                        <div class="divider"/>
                         <div style="height: 22px"/>
                         <div class="museum-item-mouseover-seeall">
                             전체 일정 보기
@@ -105,11 +105,20 @@ export default {
         flex-direction: column;
         align-items: center;
     }
+    .museum-item-mouseover .divider {
+        background-color: white; 
+        width: 0px; 
+        height: 1px;
+        transition: width 1s ease;
+    }
     .museum-item-mouseover:hover {
         opacity: 1;
     }
+    .museum-item-mouseover:hover >.divider {
+        width: 100px;
+    }
     .museum-item-mouseover:hover ~.museum-image-container .museum-item-image {
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
     .museum-image-container {
         width: 377px;
