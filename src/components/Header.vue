@@ -39,7 +39,7 @@
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList3">
-                                <div class="sub-menu-item">
+                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
                                     {{ item }}
                                 </div>
                             </li>
@@ -52,7 +52,7 @@
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList4">
-                                <div class="sub-menu-item">
+                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
                                     {{ item }}
                                 </div>
                             </li>
@@ -65,7 +65,7 @@
                         <div v-if="expandMenu" >
                             <div style="height: 58px"/>
                             <li class="sub-menu" v-for="(item, index) in menuList5">
-                                <div class="sub-menu-item">
+                                <div class="sub-menu-item" v-on:click="setSubPageScreen">
                                     {{ item }}
                                 </div>
                             </li>
@@ -95,14 +95,18 @@
     </div>
     
 </template>
-
 <script>
 import { ref } from 'vue'
 import headerLogo from '@/assets/header_logo.png'
 import searchIcon from '@/assets/search_icon.png'
 import chevronDown from '@/assets/chevron-down.png'
+import MainScreen from './MainScreen.vue'
+import SubPageScreen from './SubPageScreen/SubPageScreen.vue'
 
 export default {
+    props: [
+        "currentPage"
+    ],
     data() {
         return {
             underlineXOffset: null,
@@ -148,9 +152,6 @@ export default {
         }
     },
     setup() {
-        const routes = {
-            
-        }
         const logo = ref(headerLogo)
         const icon = ref(searchIcon)
         const down = ref(chevronDown)

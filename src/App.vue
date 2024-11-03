@@ -12,6 +12,8 @@ const routes = {
 
 const currentPage = ref(window.location.pathname)
 
+
+
 window.addEventListener('popstate', () => {
   console.log(window.location)
   currentPage.value = window.location.pathname

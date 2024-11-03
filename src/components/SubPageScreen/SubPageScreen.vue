@@ -6,24 +6,17 @@
         <div style="height: 109px"/>
         <div class="menu-bar">
             <div class="menu-list">
-                <div class="menu">
-                전체
-                </div>
-                <div class="menu">
-                    서울
-                </div>
-                <div class="menu">
-                    과천
-                </div>
-                <div class="menu">
-                    덕수궁
-                </div>
-                <div class="menu">
-                    청주
-                </div>
+                <li class="menu" v-for="(item,index) in menus" :ref="item.ref" 
+                :class="selectedCategoryIndex === index ? selectedCategoryClass : ''"
+                v-on:click="moveUnderline(index, $event)">
+                    
+                        {{ item.title }}
+                    
+                </li>
             </div>
-            <div style="height: 22px"/>
             <div class="divider"/>
+            <div class="hover-underline" 
+                    :style="{transform: 'translateX(' +underlineXOffset + 'px)'}"/>    
         </div>
         <div style="height: 89px"/>
         <div class="current-display-section">
@@ -57,14 +50,42 @@ import currentDisplay5 from '@/assets/current_display5.png'
 import currentDisplay6 from '@/assets/current_display6.png'
 import currentDisplay7 from '@/assets/current_display7.png'
 import currentDisplay8 from '@/assets/current_display8.png'
-
-
-
 </script>
 
 <script>
+import { ref } from 'vue'
+
 export default {
+    mounted() {
+        const entireMenu = this.$refs.entire[0]
+        const x = entireMenu.offsetLeft
+        const width = entireMenu.getBoundingClientRect().width
+        const center = x + width / 2 - 33.5
+        this.underlineXOffset = center
+    },
     data() {
+        const menus = [
+            {
+                title: "전체",
+                ref: "entire"
+            },
+            {
+                title: "서울",
+                ref: "seoul"
+            },
+            {
+                title: "과천",
+                ref: "gwacheon"
+            },
+            {
+                title: "덕수궁",
+                ref: "deoksoogoong"
+            },
+            {
+                title: "청주",
+                ref: "cheongju"
+            }
+        ]
         const currentDisplays = [
             {
                 image: currentDisplay1,
@@ -115,10 +136,27 @@ export default {
                 date: "12월 28일 수요일 - 5월 31일 금요일"
             }
         ]
+        const selectedCategoryIndex = ref(0)
         return {
-            currentDisplays
+            selectedCategoryIndex,
+            menus,
+            currentDisplays,
+            underlineXOffset: null,
+            selectedCategoryClass: "selected-menu"
         }
-    }
+    },
+    methods: {
+        moveUnderline(index, event) {
+            this.selectedCategoryIndex = index
+            const x = event.srcElement.offsetLeft
+            const width = event.srcElement.getBoundingClientRect().width
+            const center = x + width / 2 - 33.5
+
+            if (this.underlineXOffset !== center) {
+                this.underlineXOffset = center
+            }
+        },
+    },
 }
 </script>
 
@@ -137,9 +175,36 @@ export default {
     }
     .sub-page .menu-bar {
         width: 100%;
+        position: relative;
     }
+    .sub-page .menu-bar .hover-underline {
+        position: absolute;
+        background-color: #998a5f;
+        height: 5px;
+        width: 67px;
+        top: 54px;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
     .sub-page .menu-bar .menu-list {
         display: flex;
+        justify-content: center;
+    }
+    .sub-page .menu-bar .menu-list .selected-menu {
+        color: black !important;
+    }
+    .sub-page .menu-bar .menu-list .menu {
+        font-size: 18px;
+        font-weight: 500;
+        padding-top: 24px;
+        padding-bottom: 12px;
+        color: #7f7f7f;
+        width: 148px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
     }
     .sub-page .menu-bar .divider {
         width: 100%;
